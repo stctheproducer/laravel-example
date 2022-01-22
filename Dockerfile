@@ -34,6 +34,7 @@ RUN apt-get update \
        php8.1-msgpack php8.1-igbinary php8.1-redis php8.1-swoole \
        php8.1-memcached php8.1-pcov php8.1-xdebug \
     && php -r "readfile('http://getcomposer.org/installer');" | php -- --install-dir=/usr/bin/ --filename=composer \
+    && composer install \
     && curl -sL https://deb.nodesource.com/setup_$NODE_VERSION.x | bash - \
     && apt-get install -y nodejs \
     && npm install -g npm \
@@ -56,10 +57,6 @@ COPY docker/8.1/start-container /usr/local/bin/start-container
 COPY docker/8.1/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY docker/8.1/php.ini /etc/php/8.1/cli/conf.d/99-sail.ini
 RUN chmod +x /usr/local/bin/start-container
-
-USER sail
-
-RUN composer install
 
 EXPOSE 8000
 
