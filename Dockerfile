@@ -8,7 +8,7 @@ ARG NODE_VERSION=16
 
 WORKDIR /var/www/html
 
-COPY . /var/www/html/
+COPY . /var/www/html
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV TZ=UTC
@@ -56,6 +56,10 @@ COPY docker/8.1/start-container /usr/local/bin/start-container
 COPY docker/8.1/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY docker/8.1/php.ini /etc/php/8.1/cli/conf.d/99-sail.ini
 RUN chmod +x /usr/local/bin/start-container
+
+USER sail
+
+RUN composer install
 
 EXPOSE 8000
 
