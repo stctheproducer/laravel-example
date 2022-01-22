@@ -59,11 +59,7 @@ RUN chmod +x /usr/local/bin/start-container
 
 RUN chown -R sail:sail /var/www/html
 
-USER sail
-
-RUN composer install --no-dev
-
-USER root
+RUN gosu sail composer install --no-dev
 
 EXPOSE 8000
 
