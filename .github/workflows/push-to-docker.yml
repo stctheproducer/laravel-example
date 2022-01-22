@@ -17,12 +17,12 @@ jobs:
           fetch-depth: 0
       - id: version
         name: Git Version
-        uses: arago/semver-release-action@v10
+        uses: arago/semver-release-action@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
       - id: image_build
         name: Build Docker Image
-        uses: abhishek-070/docker-image-build-push-action@v1.0
+        uses: Abhishek-070/docker-image-build-push-action@v1.0
         with:
           registry_url: "docker.io"
           repository_name: "laravel-example"
