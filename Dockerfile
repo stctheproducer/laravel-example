@@ -63,6 +63,8 @@ USER sail
 
 RUN composer install --no-dev
 
+USER root
+
 EXPOSE 8000
 
 ENTRYPOINT ["start-container"]
