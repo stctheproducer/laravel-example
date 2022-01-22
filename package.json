@@ -1,5 +1,5 @@
 {
-    "version": "0.2.11-beta",
+    "version": "0.2.12-beta",
     "private": true,
     "scripts": {
         "dev": "npm run development",
