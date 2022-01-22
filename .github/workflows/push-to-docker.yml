@@ -31,7 +31,7 @@ jobs:
         with:
           context: "./socker/8.1"
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/laravel-example:v${{ steps.version.outputs.current_version }},${{ secrets.DOCKERHUB_USERNAME }}/laravel-example:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/laravel-example:${{ steps.version.outputs.current_version }},${{ secrets.DOCKERHUB_USERNAME }}/laravel-example:latest
       - name: Metadata
         run: |
           echo "The result is:"; echo "${{ steps.build_push.outputs.metadata }}"
